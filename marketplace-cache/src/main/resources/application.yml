@@ -1,0 +1,52 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: marketplace-cache
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: 0
+    lettuce:
+      pool:
+        max-active: 16
+        max-idle: 8
+        min-idle: 2
+        max-wait: 5000ms
+    timeout: 5000ms
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: cache-invalidation
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        acks: all
+        retries: 3
+
+logging:
+  level:
+    com.marketplace.cache: DEBUG
+    org.springframework.data.redis: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

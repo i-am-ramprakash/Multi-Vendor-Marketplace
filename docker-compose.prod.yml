@@ -1,0 +1,215 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: marketplace-mysql-prod
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - marketplace-network
+    restart: always
+
+  redis:
+    image: redis:7-alpine
+    container_name: marketplace-redis-prod
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - marketplace-network
+    restart: always
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: marketplace-zookeeper-prod
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - marketplace-network
+    restart: always
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: marketplace-kafka-prod
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-frontend:
+    build: ./marketplace-frontend
+    container_name: marketplace-frontend-prod
+    environment:
+      NEXT_PUBLIC_API_URL: ${API_URL}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-gateway:
+    build: ./marketplace-gateway
+    container_name: marketplace-gateway-prod
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      REDIS_HOST: redis
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-auth:
+    build: ./marketplace-auth
+    container_name: marketplace-auth-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-vendor:
+    build: ./marketplace-vendor
+    container_name: marketplace-vendor-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-product:
+    build: ./marketplace-product
+    container_name: marketplace-product-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-cart:
+    build: ./marketplace-cart
+    container_name: marketplace-cart-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-wishlist:
+    build: ./marketplace-wishlist
+    container_name: marketplace-wishlist-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-order:
+    build: ./marketplace-order
+    container_name: marketplace-order-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-commission:
+    build: ./marketplace-commission
+    container_name: marketplace-commission-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-notification:
+    build: ./marketplace-notification
+    container_name: marketplace-notification-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-url-shortener:
+    build: ./marketplace-url-shortener
+    container_name: marketplace-url-shortener-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD}
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-cache:
+    build: ./marketplace-cache
+    container_name: marketplace-cache-prod
+    environment:
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD}
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    networks:
+      - marketplace-network
+    restart: always
+
+  marketplace-admin:
+    build: ./marketplace-admin
+    container_name: marketplace-admin-prod
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - marketplace-network
+    restart: always
+
+volumes:
+  mysql-data:
+  redis-data:
+
+networks:
+  marketplace-network:
+    driver: bridge

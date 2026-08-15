@@ -1,0 +1,115 @@
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+*.swp
+*.swo
+*~
+.vs/
+*.code-workspace
+
+# Eclipse
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+logs.*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Docker
+docker-compose.override.yml
+
+# Flyway
+flyway.conf
+
+# Test
+*.test
+*.tests
+*.spec
+
+# Coverage
+coverage/
+htmlcov/
+*.coverage
+.coverage.*
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle wrapper
+.gradle/wrapper/gradle-wrapper.jar
+
+# Spring Boot
+*.pid
+
+# Application specific
+application-local.yml
+application-local.properties

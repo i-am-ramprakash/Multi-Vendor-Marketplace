@@ -1,0 +1,155 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: marketplace-gateway
+
+  cloud:
+    gateway:
+      routes:
+        # Auth Service
+        - id: marketplace-auth
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/v1/auth/**
+          filters:
+            - StripPrefix=0
+
+        # Vendor Service
+        - id: marketplace-vendor
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/v1/vendors/**,/api/v1/admin/vendors/**
+          filters:
+            - StripPrefix=0
+
+        # Product Service
+        - id: marketplace-product
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/v1/products/**,/api/v1/categories/**,/api/v1/admin/products/**
+          filters:
+            - StripPrefix=0
+
+        # Cart Service
+        - id: marketplace-cart
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/v1/cart/**
+          filters:
+            - StripPrefix=0
+
+        # Wishlist Service
+        - id: marketplace-wishlist
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/v1/wishlist/**
+          filters:
+            - StripPrefix=0
+
+        # Order Service
+        - id: marketplace-order
+          uri: http://localhost:8086
+          predicates:
+            - Path=/api/v1/orders/**
+          filters:
+            - StripPrefix=0
+
+        # Commission Service
+        - id: marketplace-commission
+          uri: http://localhost:8087
+          predicates:
+            - Path=/api/v1/commissions/**,/api/v1/admin/commissions/**
+          filters:
+            - StripPrefix=0
+
+        # Notification Service
+        - id: marketplace-notification
+          uri: http://localhost:8088
+          predicates:
+            - Path=/api/v1/notifications/**,/api/v1/admin/notifications/**
+          filters:
+            - StripPrefix=0
+
+        # URL Shortener Service
+        - id: marketplace-url-shortener
+          uri: http://localhost:8089
+          predicates:
+            - Path=/api/v1/urls/**,/s/**
+          filters:
+            - StripPrefix=0
+
+        # Cache Service
+        - id: marketplace-cache
+          uri: http://localhost:8090
+          predicates:
+            - Path=/api/v1/cache/**
+          filters:
+            - StripPrefix=0
+
+        # Admin Dashboard Service
+        - id: marketplace-admin
+          uri: http://localhost:8091
+          predicates:
+            - Path=/api/v1/admin/dashboard/**
+          filters:
+            - StripPrefix=0
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "${app.cors.allowed-origins:http://localhost:3000}"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            exposedHeaders: "Authorization"
+            allowCredentials: true
+            maxAge: 3600
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+app:
+  version: 1.0.0
+  description: Multi-Vendor Marketplace API Gateway
+
+  jwt:
+    secret: ${JWT_SECRET:your-super-secret-jwt-key-that-is-at-least-256-bits-long-for-hs256}
+    issuer: multivendor-marketplace
+    audience: multivendor-marketplace-api
+
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:3001}
+
+  rate-limit:
+    enabled: true
+    requests-per-second: 50
+    burst-capacity: 100
+
+logging:
+  level:
+    com.marketplace.gateway: INFO
+    org.springframework.cloud.gateway: INFO
+    reactor.netty.http.client: WARN
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

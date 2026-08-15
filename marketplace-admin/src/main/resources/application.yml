@@ -1,0 +1,70 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: marketplace-admin
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/multivendor_marketplace?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+        default_batch_fetch_size: 16
+
+  flyway:
+    enabled: false
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: non_null
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+logging:
+  level:
+    com.marketplace.admin: DEBUG
+    org.hibernate.SQL: WARN
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:your-super-secret-jwt-key-that-is-at-least-256-bits-long-for-hs256}
+    issuer: multivendor-marketplace
+    audience: multivendor-marketplace-api

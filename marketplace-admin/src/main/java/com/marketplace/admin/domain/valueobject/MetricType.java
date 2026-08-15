@@ -1,0 +1,20 @@
+package com.marketplace.admin.domain.valueobject;
+
+public enum MetricType {
+    USERS,
+    VENDORS,
+    PRODUCTS,
+    ORDERS,
+    REVENUE,
+    COMMISSION,
+    TOP_VENDORS,
+    TOP_PRODUCTS,
+    DAILY_REVENUE,
+    MONTHLY_REVENUE,
+    CATEGORY_REVENUE,
+    VENDOR_PERFORMANCE,
+    ORDER_STATUS_BREAKDOWN,
+    PRODUCT_STATUS_BREAKDOWN,
+    USER_REGISTRATIONS,
+    GROWTH_RATE
+}
