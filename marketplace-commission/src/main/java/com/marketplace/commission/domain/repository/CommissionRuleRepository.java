@@ -2,8 +2,6 @@ package com.marketplace.commission.domain.repository;
 
 import com.marketplace.commission.domain.entity.CommissionRule;
 import com.marketplace.commission.domain.valueobject.CommissionType;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;

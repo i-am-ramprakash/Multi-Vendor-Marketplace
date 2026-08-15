@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface CommissionRecordJpaRepository extends JpaRepository<CommissionRecordJpaEntity, Long> {

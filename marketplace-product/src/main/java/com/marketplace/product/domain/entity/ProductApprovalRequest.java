@@ -1,6 +1,5 @@
 package com.marketplace.product.domain.entity;
 
-import com.marketplace.product.domain.valueobject.ProductStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -2,7 +2,6 @@ package com.marketplace.vendor.infrastructure.persistence.entity;
 
 import com.marketplace.vendor.domain.valueobject.VendorStatus;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

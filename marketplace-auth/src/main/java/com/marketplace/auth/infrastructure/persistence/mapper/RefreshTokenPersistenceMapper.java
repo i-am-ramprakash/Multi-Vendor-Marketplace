@@ -1,9 +1,7 @@
 package com.marketplace.auth.infrastructure.persistence.mapper;
 
 import com.marketplace.auth.domain.entity.RefreshToken;
-import com.marketplace.auth.domain.entity.User;
 import com.marketplace.auth.infrastructure.persistence.entity.RefreshTokenJpaEntity;
-import com.marketplace.auth.infrastructure.persistence.entity.UserJpaEntity;
 
 public final class RefreshTokenPersistenceMapper {
 

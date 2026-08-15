@@ -2,12 +2,6 @@ package com.marketplace.cart.application.service;
 
 import com.marketplace.cart.application.dto.*;
 import com.marketplace.cart.application.usecase.*;
-import com.marketplace.cart.domain.entity.Cart;
-import com.marketplace.cart.domain.entity.CartItem;
-import com.marketplace.cart.domain.exception.CartNotFoundException;
-import com.marketplace.cart.domain.repository.CartRepository;
-import com.marketplace.cart.domain.service.InventoryValidationService;
-import com.marketplace.cart.domain.valueobject.CartStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

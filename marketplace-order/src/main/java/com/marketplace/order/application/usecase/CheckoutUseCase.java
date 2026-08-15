@@ -9,7 +9,6 @@ import com.marketplace.order.domain.exception.InsufficientInventoryException;
 import com.marketplace.order.domain.repository.OrderRepository;
 import com.marketplace.order.domain.service.InventoryService;
 import com.marketplace.order.domain.service.PaymentService;
-import com.marketplace.order.domain.valueobject.Money;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;

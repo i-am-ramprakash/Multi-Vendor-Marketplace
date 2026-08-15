@@ -3,7 +3,6 @@ package com.marketplace.auth.domain.service;
 import com.marketplace.auth.domain.entity.User;
 
 import java.time.Instant;
-import java.util.Map;
 import java.util.Optional;
 
 public interface TokenService {

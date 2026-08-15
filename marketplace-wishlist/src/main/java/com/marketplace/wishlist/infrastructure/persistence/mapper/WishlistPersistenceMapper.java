@@ -6,9 +6,6 @@ import com.marketplace.wishlist.infrastructure.persistence.entity.WishlistItemJp
 import com.marketplace.wishlist.infrastructure.persistence.entity.WishlistJpaEntity;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public final class WishlistPersistenceMapper {
 

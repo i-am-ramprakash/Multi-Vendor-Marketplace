@@ -11,7 +11,6 @@ import com.marketplace.auth.domain.repository.RefreshTokenRepository;
 import com.marketplace.auth.domain.service.PasswordService;
 import com.marketplace.auth.domain.service.TokenService;
 import com.marketplace.auth.domain.valueobject.Email;
-import com.marketplace.auth.domain.exception.UserNotFoundException;
 import com.marketplace.auth.domain.exception.InvalidCredentialsException;
 import com.marketplace.auth.domain.exception.UserNotActiveException;
 import com.marketplace.auth.domain.exception.EmailNotVerifiedException;

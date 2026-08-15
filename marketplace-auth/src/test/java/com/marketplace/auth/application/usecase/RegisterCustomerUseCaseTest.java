@@ -11,18 +11,15 @@ import com.marketplace.auth.domain.service.PasswordService;
 import com.marketplace.auth.domain.service.TokenService;
 import com.marketplace.auth.domain.valueobject.Email;
 import com.marketplace.auth.domain.valueobject.PasswordHash;
-import com.marketplace.auth.domain.valueobject.PhoneNumber;
 import com.marketplace.auth.domain.exception.EmailAlreadyExistsException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 
 import java.util.Optional;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;

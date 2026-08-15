@@ -5,8 +5,6 @@ import com.marketplace.notification.domain.entity.DeadLetterMessage;
 import com.marketplace.notification.domain.entity.Notification;
 import com.marketplace.notification.domain.repository.DeadLetterMessageRepository;
 import com.marketplace.notification.domain.repository.NotificationRepository;
-import com.marketplace.notification.domain.valueobject.NotificationChannel;
-import com.marketplace.notification.domain.valueobject.NotificationType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

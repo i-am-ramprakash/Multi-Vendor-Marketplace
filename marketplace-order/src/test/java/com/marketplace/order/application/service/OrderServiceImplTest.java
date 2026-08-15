@@ -2,9 +2,6 @@ package com.marketplace.order.application.service;
 
 import com.marketplace.order.application.dto.*;
 import com.marketplace.order.application.usecase.*;
-import com.marketplace.order.domain.entity.Order;
-import com.marketplace.order.domain.valueobject.OrderNumber;
-import com.marketplace.order.domain.valueobject.OrderStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

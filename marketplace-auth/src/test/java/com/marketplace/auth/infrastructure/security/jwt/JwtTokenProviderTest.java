@@ -4,14 +4,11 @@ import com.marketplace.auth.domain.entity.Role;
 import com.marketplace.auth.domain.entity.User;
 import com.marketplace.auth.domain.valueobject.Email;
 import com.marketplace.auth.domain.valueobject.PasswordHash;
-import com.marketplace.auth.domain.valueobject.UserStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
 

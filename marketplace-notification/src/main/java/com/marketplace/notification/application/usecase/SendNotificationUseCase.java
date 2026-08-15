@@ -5,7 +5,6 @@ import com.marketplace.notification.application.dto.NotificationResponse;
 import com.marketplace.notification.domain.entity.Notification;
 import com.marketplace.notification.domain.entity.NotificationAuditLog;
 import com.marketplace.notification.domain.entity.NotificationTemplate;
-import com.marketplace.notification.domain.event.NotificationSentEvent;
 import com.marketplace.notification.domain.exception.NotificationSendException;
 import com.marketplace.notification.domain.exception.TemplateNotFoundException;
 import com.marketplace.notification.domain.repository.NotificationAuditLogRepository;
@@ -19,7 +18,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
 import java.util.Map;
 
 @Component

@@ -1,8 +1,6 @@
 package com.marketplace.order.infrastructure.persistence.mapper;
 
 import com.marketplace.order.domain.entity.OrderItem;
-import com.marketplace.order.domain.valueobject.Money;
-import com.marketplace.order.domain.valueobject.OrderItemStatus;
 import com.marketplace.order.infrastructure.persistence.entity.OrderItemJpaEntity;
 
 import java.lang.reflect.Field;

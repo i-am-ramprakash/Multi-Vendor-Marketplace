@@ -5,7 +5,6 @@ import com.marketplace.product.application.dto.VariantResponse;
 import com.marketplace.product.domain.entity.InventoryMovement;
 import com.marketplace.product.domain.entity.ProductVariant;
 import com.marketplace.product.domain.event.InventoryUpdatedEvent;
-import com.marketplace.product.domain.exception.ProductNotFoundException;
 import com.marketplace.product.domain.exception.VariantNotFoundException;
 import com.marketplace.product.domain.repository.InventoryMovementRepository;
 import com.marketplace.product.domain.repository.ProductVariantRepository;

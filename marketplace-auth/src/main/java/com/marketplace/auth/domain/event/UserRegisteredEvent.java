@@ -3,7 +3,6 @@ package com.marketplace.auth.domain.event;
 import com.marketplace.auth.domain.valueobject.Email;
 import lombok.Getter;
 
-import java.time.Instant;
 
 @Getter
 public class UserRegisteredEvent extends DomainEvent {

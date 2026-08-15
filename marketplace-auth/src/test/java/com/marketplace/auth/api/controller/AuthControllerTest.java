@@ -3,7 +3,6 @@ package com.marketplace.auth.api.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marketplace.auth.application.dto.*;
 import com.marketplace.auth.application.service.AuthService;
-import com.marketplace.auth.api.advice.ErrorResponse;
 import com.marketplace.auth.api.advice.GlobalExceptionHandler;
 import com.marketplace.auth.domain.exception.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.time.Instant;
 import java.util.Set;
 
 import static org.mockito.ArgumentMatchers.any;

@@ -6,9 +6,6 @@ import com.marketplace.vendor.domain.entity.Vendor;
 import com.marketplace.vendor.domain.repository.VendorRepository;
 import com.marketplace.vendor.domain.valueobject.VendorStatus;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

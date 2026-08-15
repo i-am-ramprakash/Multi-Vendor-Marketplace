@@ -2,7 +2,6 @@ package com.marketplace.vendor.infrastructure.persistence.mapper;
 
 import com.marketplace.vendor.domain.entity.Vendor;
 import com.marketplace.vendor.domain.valueobject.StoreSlug;
-import com.marketplace.vendor.domain.valueobject.VendorStatus;
 import com.marketplace.vendor.infrastructure.persistence.entity.VendorJpaEntity;
 
 import java.lang.reflect.Field;

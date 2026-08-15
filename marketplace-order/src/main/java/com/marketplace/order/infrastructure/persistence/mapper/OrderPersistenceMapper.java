@@ -12,8 +12,6 @@ import com.marketplace.order.infrastructure.persistence.entity.OrderJpaEntity;
 import com.marketplace.order.infrastructure.persistence.entity.OrderStatusHistoryJpaEntity;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 
 public final class OrderPersistenceMapper {
 

@@ -6,7 +6,6 @@ import com.marketplace.product.domain.event.ProductCreatedEvent;
 import com.marketplace.product.domain.exception.*;
 import com.marketplace.product.domain.repository.*;
 import com.marketplace.product.domain.valueobject.ProductSlug;
-import com.marketplace.product.domain.valueobject.ProductStatus;
 import com.marketplace.product.domain.valueobject.SKU;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;

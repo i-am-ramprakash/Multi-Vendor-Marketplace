@@ -6,7 +6,6 @@ import com.marketplace.auth.domain.entity.User;
 import com.marketplace.auth.domain.repository.UserRepository;
 import com.marketplace.auth.domain.valueobject.PhoneNumber;
 import com.marketplace.auth.domain.exception.UserNotFoundException;
-import com.marketplace.auth.application.exception.ValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

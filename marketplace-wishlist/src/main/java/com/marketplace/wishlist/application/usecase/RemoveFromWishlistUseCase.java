@@ -1,7 +1,6 @@
 package com.marketplace.wishlist.application.usecase;
 
 import com.marketplace.wishlist.domain.entity.Wishlist;
-import com.marketplace.wishlist.domain.entity.WishlistItem;
 import com.marketplace.wishlist.domain.event.ItemRemovedFromWishlistEvent;
 import com.marketplace.wishlist.domain.exception.WishlistNotFoundException;
 import com.marketplace.wishlist.domain.repository.WishlistRepository;

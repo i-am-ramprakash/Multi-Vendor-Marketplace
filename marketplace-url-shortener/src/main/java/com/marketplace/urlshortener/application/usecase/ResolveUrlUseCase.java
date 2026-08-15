@@ -2,7 +2,6 @@ package com.marketplace.urlshortener.application.usecase;
 
 import com.marketplace.urlshortener.domain.entity.ShortUrl;
 import com.marketplace.urlshortener.domain.entity.UrlClick;
-import com.marketplace.urlshortener.domain.entity.UrlAnalytics;
 import com.marketplace.urlshortener.domain.event.UrlClickedEvent;
 import com.marketplace.urlshortener.domain.exception.UrlExpiredException;
 import com.marketplace.urlshortener.domain.exception.UrlNotFoundException;
@@ -16,8 +15,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
-import java.util.HashSet;
 import java.util.Set;
 
 @Component

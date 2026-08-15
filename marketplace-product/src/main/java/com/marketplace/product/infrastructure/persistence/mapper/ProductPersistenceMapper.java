@@ -2,7 +2,6 @@ package com.marketplace.product.infrastructure.persistence.mapper;
 
 import com.marketplace.product.domain.entity.Product;
 import com.marketplace.product.domain.valueobject.ProductSlug;
-import com.marketplace.product.domain.valueobject.ProductStatus;
 import com.marketplace.product.domain.valueobject.SKU;
 import com.marketplace.product.infrastructure.persistence.entity.ProductJpaEntity;
 

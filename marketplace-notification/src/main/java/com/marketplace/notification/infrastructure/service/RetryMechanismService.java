@@ -8,7 +8,6 @@ import com.marketplace.notification.domain.repository.NotificationRepository;
 import com.marketplace.notification.domain.repository.NotificationRetryLogRepository;
 import com.marketplace.notification.domain.service.EmailService;
 import com.marketplace.notification.domain.service.KafkaProducerService;
-import com.marketplace.notification.domain.valueobject.NotificationStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

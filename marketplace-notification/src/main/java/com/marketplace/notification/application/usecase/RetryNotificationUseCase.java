@@ -7,7 +7,6 @@ import com.marketplace.notification.domain.exception.NotificationNotFoundExcepti
 import com.marketplace.notification.domain.repository.NotificationAuditLogRepository;
 import com.marketplace.notification.domain.repository.NotificationRepository;
 import com.marketplace.notification.domain.service.EmailService;
-import com.marketplace.notification.domain.valueobject.NotificationStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

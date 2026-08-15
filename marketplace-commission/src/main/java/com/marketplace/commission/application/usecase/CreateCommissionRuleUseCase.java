@@ -3,7 +3,6 @@ package com.marketplace.commission.application.usecase;
 import com.marketplace.commission.application.dto.CreateCommissionRuleRequest;
 import com.marketplace.commission.application.dto.CommissionRuleResponse;
 import com.marketplace.commission.domain.entity.CommissionRule;
-import com.marketplace.commission.domain.exception.CommissionRuleNotFoundException;
 import com.marketplace.commission.domain.repository.CommissionRuleRepository;
 import com.marketplace.commission.domain.valueobject.CommissionType;
 import lombok.RequiredArgsConstructor;

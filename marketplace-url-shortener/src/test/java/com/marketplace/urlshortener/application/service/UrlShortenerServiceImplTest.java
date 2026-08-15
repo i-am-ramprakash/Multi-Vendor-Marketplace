@@ -2,7 +2,6 @@ package com.marketplace.urlshortener.application.service;
 
 import com.marketplace.urlshortener.application.dto.*;
 import com.marketplace.urlshortener.application.usecase.*;
-import com.marketplace.urlshortener.domain.valueobject.UrlStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

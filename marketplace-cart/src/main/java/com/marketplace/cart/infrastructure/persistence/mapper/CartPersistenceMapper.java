@@ -6,9 +6,6 @@ import com.marketplace.cart.infrastructure.persistence.entity.CartItemJpaEntity;
 import com.marketplace.cart.infrastructure.persistence.entity.CartJpaEntity;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public final class CartPersistenceMapper {
 

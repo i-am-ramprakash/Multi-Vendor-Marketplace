@@ -1,7 +1,6 @@
 package com.marketplace.admin.domain.repository;
 
 import com.marketplace.admin.domain.entity.*;
-import com.marketplace.admin.domain.valueobject.ExportFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

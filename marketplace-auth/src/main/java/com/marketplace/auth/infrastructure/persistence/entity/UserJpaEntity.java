@@ -2,7 +2,6 @@ package com.marketplace.auth.infrastructure.persistence.entity;
 
 import com.marketplace.auth.domain.valueobject.UserStatus;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

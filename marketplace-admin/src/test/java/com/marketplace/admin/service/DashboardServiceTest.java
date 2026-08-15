@@ -2,7 +2,6 @@ package com.marketplace.admin.service;
 
 import com.marketplace.admin.application.dto.DashboardFilterRequest;
 import com.marketplace.admin.application.dto.DashboardMetricsResponse;
-import com.marketplace.admin.application.service.DashboardService;
 import com.marketplace.admin.application.service.DashboardServiceImpl;
 import com.marketplace.admin.domain.repository.DashboardRepository;
 import org.junit.jupiter.api.Test;

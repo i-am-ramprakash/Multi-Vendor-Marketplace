@@ -3,7 +3,6 @@ package com.marketplace.commission.application.usecase;
 import com.marketplace.commission.application.dto.SettlementResponse;
 import com.marketplace.commission.domain.entity.CommissionAuditLog;
 import com.marketplace.commission.domain.entity.Settlement;
-import com.marketplace.commission.domain.event.SettlementCompletedEvent;
 import com.marketplace.commission.domain.exception.SettlementNotFoundException;
 import com.marketplace.commission.domain.repository.CommissionAuditLogRepository;
 import com.marketplace.commission.domain.repository.SettlementRepository;

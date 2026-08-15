@@ -2,7 +2,6 @@ package com.marketplace.notification.application.service;
 
 import com.marketplace.notification.application.dto.*;
 import com.marketplace.notification.application.usecase.*;
-import com.marketplace.notification.domain.entity.DeadLetterMessage;
 import com.marketplace.notification.domain.entity.NotificationTemplate;
 import com.marketplace.notification.domain.repository.DeadLetterMessageRepository;
 import com.marketplace.notification.domain.repository.NotificationTemplateRepository;
@@ -15,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;

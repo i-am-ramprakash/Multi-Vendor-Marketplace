@@ -5,7 +5,6 @@ import com.marketplace.auth.domain.entity.Role;
 import com.marketplace.auth.domain.valueobject.Email;
 import com.marketplace.auth.domain.valueobject.PasswordHash;
 import com.marketplace.auth.domain.valueobject.PhoneNumber;
-import com.marketplace.auth.domain.valueobject.UserStatus;
 import com.marketplace.auth.infrastructure.persistence.entity.UserJpaEntity;
 import com.marketplace.auth.infrastructure.persistence.entity.RoleJpaEntity;
 
